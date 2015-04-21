@@ -1,0 +1,48 @@
+﻿@model WebInterface.Areas.UserManagement.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title</h2>
+<br/>
+<div class="row">
+	<div class="col-sm-12 col-md-10">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h4>Create a new account</h4>
+			</div>
+			<div class="panel-body">
+				@using (Html.BeginForm("Register", "Account", FormMethod.Post, new {role = "form"}))
+				{
+					@Html.AntiForgeryToken()
+					@Html.ValidationSummary("", new {@class = "text-danger"})
+					<div class="form-group">
+						@Html.LabelFor(m => m.Email, new {@class = "control-label"})
+						@Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.Password, new {@class = "control-label"})
+						@Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.ConfirmPassword, new {@class = "control-label"})
+						@Html.PasswordFor(m => m.ConfirmPassword, new {@class = "form-control"})
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-success" value="Register"/>
+					</div>
+				}
+
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-0 col-md-2">
+
+	</div>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

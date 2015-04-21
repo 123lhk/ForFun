@@ -1,0 +1,25 @@
+﻿using System.Web.Mvc;
+
+namespace WebInterface.Areas.UserManagement
+{
+    public class UserManagementAreaRegistration : AreaRegistration 
+    {
+        public override string AreaName 
+        {
+            get 
+            {
+                return "UserManagement";
+            }
+        }
+
+        public override void RegisterArea(AreaRegistrationContext context) 
+        {
+            context.MapRoute(
+                "User_Management",
+                "UserManagement/{controller}/{action}/{id}",
+                new { action = "Index", id = UrlParameter.Optional }
+            );
+
+        }
+    }
+}

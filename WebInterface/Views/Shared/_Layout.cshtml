@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+	<title>@ViewBag.Title - My ASP.NET Application</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+
+	@Scripts.Render("~/bundles/jquery")
+	@*@Scripts.Render("~/bundles/bootstrap")*@
+	@Scripts.Render("~/bundles/angularjs")
+	@Scripts.Render("~/bundles/angular-bootstrap")
+	@Scripts.Render("~/scripts/js")
+	@Scripts.Render("~/scripts/ngCommon")
+	@RenderSection("scripts", required: false)
+
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+
+</head>
+
+<body ng-app="myApp">
+	<div class="page-container">
+
+
+		<!-- top navbar -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					@Html.ActionLink("SSOForFun", "Dashboard", "Home", new { area = "Home" }, new { @class = "navbar-brand" })
+				</div>
+				<div class="navbar-collapse bs-js-navbar-collapse" collapse="navCollapsed">
+					<ul class="nav navbar-nav">
+						<li>@Html.ActionLink("Home", "Dashboard", new { controller = "Home", area = "Home" })</li>
+						<li>@Html.ActionLink("About", "About", new { controller = "Home", area = "Home" })</li>
+						<li>@Html.ActionLink("Contact", "Contact", new { controller = "Home", area = "Home" })</li>
+					</ul>
+					@Html.Partial("_LoginPartial")
+				</div>
+			</div>
+		</nav>
+
+
+
+		<div class="container">
+			@RenderBody()
+
+		</div><!--/.container-->
+	</div><!--/.page-container-->
+
+
+</body>
+

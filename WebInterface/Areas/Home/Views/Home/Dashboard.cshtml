@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section scripts
+{
+	@Scripts.Render("~/scripts/user-management")
+}
+
+
+<div>
+	<div class="row">
+		<div class="col-sm-12 col-md-8">
+			<h2>Dashboard</h2>
+		</div>
+		<div class="col-sm-0 col-md-4"></div>
+	</div>
+	<div class="row" ng-controller="detailController">
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-12 col-md-8">
+					Hello, {{user.FirstName}}
+				</div>
+				<div class="col-sm-0 col-md-4"></div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-sm-4">
+					<button class="btn btn-success" ng-click="setEditDetailMode()">Edit Detail</button>
+				</div>
+				<div class="col-sm-4">
+
+				</div>
+				<div class="col-sm-4">
+
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-sm-12 col-md-8">
+					<div class="panel panel-success" ng-show="mode == modeEnum.editDetail">
+						<div class=" panel-heading">
+							<a href="#" class="pull-right" ng-click="setNoneMode()">X</a>
+							<h4>User Detail</h4>
+						</div>
+					<div class="panel-body">
+							<form role="form">
+								<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+								<div class="form-group">
+									<label for="firstName">First Name:</label>
+									<input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="user.FirstName">
+								</div>
+								<div class="form-group">
+									<label for="lastName">Last Name:</label>
+									<input type="text" class="form-control" id="lastName" placeholder="Last Name" ng-model="user.LastName">
+								</div>
+
+								<div class="form-group">
+									<label for="dob">Date of Birth:</label>
+									<div class="input-group">
+										<input type="text" class="form-control" id="dob" placeholder="Date of Birth" ng-model="user.DateOfBirth" datepicker-popup="{{dateFormat}}" close-text="Close" is-open="dobOpened">
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+										</span>
+									</div>
+
+								</div>
+
+								<div class="form-group">
+									<label>Address</label>
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+										<input type="text" class="form-control" id="AddressLine1" placeholder="Address Line 1" ng-model="user.AddressDetail.AddressLine1">
+									</div>
+
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+										<input type="text" class="form-control" id="AddressLine2" placeholder="Address Line 2" ng-model="user.AddressDetail.AddressLine2">
+									</div>
+
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+										<input type="text" class="form-control" id="AddressLine3" placeholder="Address Line 3" ng-model="user.AddressDetail.AddressLine3">
+									</div>
+
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+										<input type="text" class="form-control" id="AddressLine4" placeholder="Address Line 4" ng-model="user.AddressDetail.AddressLine4">
+									</div>
+									
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-tower"></span></span>
+										<input type="text" class="form-control" id="Ciye" placeholder="City" ng-model="user.AddressDetail.City">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+										<input type="text" class="form-control" id="State" placeholder="State" ng-model="user.AddressDetail.State">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-barcode"></span></span>
+										<input type="text" class="form-control" id="Postcode" placeholder="Postcode" ng-model="user.AddressDetail.Postcode">
+									</div>
+
+								</div>
+								<button class="btn btn-success" ng-click="saveUserDetail($event)">Save</button>
+								<button class="btn btn-warning" ng-click="setNoneMode()">Close</button>
+							</form>
+					</div>
+				</div>
+				<div class="col-sm-0 col-md-4">
+					
+				</div>
+			</div>
+			
+
+
+		</div>		
+	</div>
+
+	
+
+</div>
