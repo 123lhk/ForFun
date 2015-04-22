@@ -8,3 +8,4 @@
 #!**/packages/repositories.config
 WebInterface/App_Data/SSOForFunDb.mdf
 WebInterface/App_Data/SSOForFunDb_log.ldf
+WebInterface/bin/*
