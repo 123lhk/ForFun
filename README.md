@@ -5,3 +5,4 @@ A simple project that using SimpleInjector to inject Indentity framework manager
 Contain a simple example that use Google as external login provider and get simple additional information from ExternalIdentity such as FirstName and LastName.
 
 Need to restore nuget package before it can be built (or you can enable auto restore).
+Also need to use code fisrt migration Update-Database to generate database.
