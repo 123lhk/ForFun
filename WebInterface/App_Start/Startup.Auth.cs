@@ -78,8 +78,8 @@ namespace WebInterface
 
 			var googleOAuth2AuthenticationOptions = new GoogleOAuth2AuthenticationOptions
 			{
-				ClientId = "121800089947-a8vve94m4k5umuc0jrc9v5kmavhd79ek.apps.googleusercontent.com",
-				ClientSecret = "Dp3mzCGwjbdXoqFVFiJdx0Ed",
+				ClientId = "xxx",
+				ClientSecret = "xxx",
 				//Provider = new GoogleOAuth2AuthenticationProvider()
 				//{
 				//	OnAuthenticated = async context =>
